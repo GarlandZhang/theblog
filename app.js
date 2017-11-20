@@ -6,27 +6,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var Realm = require('realm');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 
-//for realm
-let PostSchema ={ //a model(class?)
-	name: 'Post',
-	properties: {
-		timestamp: 'date',
-		title: 'string',
-		content: 'string'
-	}
-};
-
-var blogRealm = new Realm({
-	path: 'blog.realm', //name of database
-	schema: [PostSchema]
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
