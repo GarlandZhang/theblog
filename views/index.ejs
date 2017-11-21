@@ -9,6 +9,11 @@
 	<title>My Blog</title>
 
 	<style>
+
+	*{
+		font-family: Georgia, Times, "Times New Roman", serif;
+	}
+
 	.flex-container {
 	  display: flex;
 	  background-color: DodgerBlue;
@@ -21,8 +26,12 @@
 	  font-size: 30px;
 	}
 
-	p.arial-narrow{
-		font-family: "Arial Narrow", "Times New Roman";
+	p.date-colour{
+		color:#808080;
+	}
+
+	h3.title-colour{
+		color:rgb(64,64,64)
 	}
 
 	</style>
@@ -54,18 +63,34 @@
 
 			<% for(var i=0; i < posts.length; i++) { %>
 
-				<% var raw_date = posts[i].timestamp; %>
-				<% var day = ("" + raw_date).split(" ")[ 2 ]; %>
-				<% var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][raw_date.getMonth()]; %>
-				<% var post_date = (day + ' ' + month + ' ' + raw_date.getFullYear()).toUpperCase(); %>
+				<% var raw_date = posts[i].timestamp;
+				 var day = ("" + raw_date).split(" ")[ 2 ];
+				 var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][raw_date.getMonth()];
+				 var post_date = (day + ' ' + month + ' ' + raw_date.getFullYear()).toUpperCase();
+				 %>
+
+				 <%
+
+				 function truncate(str, maxLength, suffix)
+					{
+					    if(str.length > maxLength)
+					    {
+					        str = str.substring(0, maxLength + 1);
+					        str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+					        str = str + suffix;
+					    }
+					    return str;
+					}
+
+				 %>
 
 				<div class="small-3 cell large-3">
 
-					<p class="arial-narrow"> <b> <%= post_date %> </b> </p>
-					<h3> <%= posts[i].title%> </h1>
-					<p> <%=posts[i].content%> </p>
+					<p class="date-colour"> <b> <%= post_date %> </b> </p>
+					<h3 class="title-colour"> <b> <%= posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1) %> </b> </h1>
+					<p> <%= truncate(posts[i].content, 100, "...") %> </p>
 					<br> </br>
-
+					
 				</div>
 
 			<% } %>
