@@ -27,6 +27,12 @@ router.get('/write', function(req, res){
 	res.sendFile(__dirname + "/write.html");
 });
 
+router.get('/post-read-more', function(req, res){
+console.log(("" + req.body['title']));
+	let requested_post = blogRealm.objects('Post')[0];
+	res.render('post-read-more.ejs', {requested_post});
+});
+
 router.post('/write', function(req,res){ //post handler
 
 	let timestamp = new Date(),
@@ -42,6 +48,7 @@ router.post('/write', function(req,res){ //post handler
 
 	res.sendFile(__dirname + "/write-complete.html");
 });
+
 
 
 module.exports = router;

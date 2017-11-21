@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Blog</title>
+
+	<style>
+
+	*{
+		font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+	}
+
+	.flex-container {
+	  display: flex;
+	  background-color: DodgerBlue;
+	}
+
+	.flex-container>div {
+	  background-color: #f1f1f1;
+	  margin: 10px;
+	  padding:20px;
+	  font-size: 30px;
+	}
+
+	p.date-attribs{
+		color:#808080;
+		font-size: 12px;
+	}
+
+	p.post-content-attribs{
+		font-size: 15px;
+	}
+
+	h3.post-title-attribs{
+		color:rgb(64,64,64);
+		font-size: 30px;
+	}
+
+	div.post-attribs{
+		width: 90%;
+		box-shadow: 10px 10px 20px #888888;
+	}
+
+	</style>
+
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+
+</head>
+
+<body>
+  <div class="small-12 cell large-12">
+
+		<% var raw_date = requested_post.timestamp;
+		 var day = ("" + raw_date).split(" ")[ 2 ];
+		 var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][raw_date.getMonth()];
+		 var post_date = (day + ' ' + month + ' ' + raw_date.getFullYear()).toUpperCase();
+		 %>
+
+		<p class="date-attribs"> <b> <%= post_date %> </b> </p>
+
+		<%
+
+		function truncate(str, maxLength, suffix)
+		 {
+				 if(str.length > maxLength)
+				 {
+						 str = str.substring(0, maxLength + 1);
+						 str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
+						 str = str + suffix;
+				 }
+				 return str;
+		 }
+
+		%>
+
+		<h3 class="post-title-attribs"> <b> <%= requested_post.title.charAt(0).toUpperCase() + requested_post.title.slice(1) %> </b> </h1>
+		<p class="post-content-attribs"> <%= truncate(requested_post.content, 100, "...") %> </p>
+
+	</div>
+</body>
+</html>

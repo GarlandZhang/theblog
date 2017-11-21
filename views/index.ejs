@@ -12,6 +12,7 @@
 
 	*{
 		font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
 	}
 
 	.flex-container {
@@ -26,21 +27,22 @@
 	  font-size: 30px;
 	}
 
-	p.date-colour{
+	p.date-attribs{
 		color:#808080;
+		font-size: 12px;
 	}
 
-	p.font-size{
+	p.post-content-attribs{
 		font-size: 15px;
 	}
 
-	h3.title-colour{
-		color:rgb(64,64,64)
+	h3.post-title-attribs{
+		color:rgb(64,64,64);
+		font-size: 30px;
 	}
 
 	div.post-attribs{
 		width: 90%;
-
 		box-shadow: 10px 10px 20px #888888;
 	}
 
@@ -57,10 +59,11 @@
 
 			  <img src="images/fugu.png">
 				<div style="text-align:center">
-					<h1> Garland Zhijia Zhang </h1>
+					<h1> garland </h1>
 					<h3> Weed cutter </h3>
 					<p> Brief summary of me. </p>
-					<p> Insert social media links. </p>
+					<p>See what I'm doing on
+						<a href="https://github.com/GarlandZhang">Github</a>. </p>
 				</div>
 
 		</div>
@@ -92,14 +95,21 @@
 
 				 %>
 
+				 <%
+
+				 var date_name = "date" + i;
+				 var title_name = "title" + i;
+				 var content_name = "content" + i;
+
+				 %>
+
 				<div class="small-3 cell large-3 post-attribs">
 
-					<p class="date-colour font-size"> <b> <%= post_date %> </b> </p>
-					<h3 class="title-colour"> <b> <%= posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1) %> </b> </h1>
-					<p class="font-size"> <%= truncate(posts[i].content, 100, "...") %> </p>
+					<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> </b> </p>
+					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1) %> </b> </h1>
+					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content, 100, "...") %> </p>
 
-					<% var blog_post_ref = "post" + i + ".html"; %>
-					<a href="blog_post_ref">Read on</a>
+					<a href="post-read-more">Read on</a>
 
 				</div>
 
