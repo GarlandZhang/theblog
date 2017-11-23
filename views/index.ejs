@@ -10,9 +10,9 @@
 
 	<style>
 
+
 	*{
 		font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-
 	}
 
 	.flex-container {
@@ -106,8 +106,8 @@
 				<div class="small-3 cell large-3 post-attribs">
 
 					<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> </b> </p>
-					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1), 40, "...") %> </b> </h1>
-					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content, 100, "...") %> </p>
+					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,50),	 40, "...") %> </b> </h1>
+					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 100), 100, "...") %> </p>
 
 					<a href="post-read-more">Read on</a>
 
