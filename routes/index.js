@@ -27,9 +27,8 @@ router.get('/write', function(req, res){
 	res.sendFile(__dirname + "/write.html");
 });
 
-router.get('/post-read-more', function(req, res, next){
-console.log(("" + req.body['title1']));
-	let requested_post = blogRealm.objects('Post')[0];
+router.get('/blog-post-0', function(req, res, next){
+	let requested_post = blogRealm.objects('Post').sorted('timestamp',true).slice(0,4)[0];
 	res.render('post-read-more.ejs', {requested_post});
 });
 

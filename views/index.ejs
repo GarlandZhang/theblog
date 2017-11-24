@@ -57,7 +57,7 @@
 	<div class="grid-x">
 	  <div class="small-6 cell large-6">
 
-			  <img src="images/fugu.png">
+			  <img id = "fugu-fish" src="images/fugu.png">
 				<div style="text-align:center">
 					<h1> garland </h1>
 					<h3> Weed cutter </h3>
@@ -109,7 +109,7 @@
 					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,50),	 40, "...") %> </b> </h1>
 					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 100), 100, "...") %> </p>
 
-					<a href="post-read-more">Read on</a>
+					<a href=<%= "blog-post-" + i %>>Read on</a>
 
 				</div>
 
