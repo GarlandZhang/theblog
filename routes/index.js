@@ -27,10 +27,17 @@ router.get('/write', function(req, res){
 	res.sendFile(__dirname + "/write.html");
 });
 
-router.get('/blog-post-0', function(req, res, next){
-	let requested_post = blogRealm.objects('Post').sorted('timestamp',true).slice(0,4)[0];
+router.get('/blog-post/:postTitle', function(req, res, next){
+
+	let requested_post = blogRealm.objects('Post').filter(function(post){
+		if(post.title == req.params.postTitle){
+			return req.params.postTitle;
+		}
+	})[0];
+
 	res.render('post-read-more.ejs', {requested_post});
 });
+
 
 router.post('/write', function(req,res){ //post handler
 
