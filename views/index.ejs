@@ -27,10 +27,43 @@
 	  font-size: 30px;
 	}
 
+	a.read-on-attribs{
+		font-size:15px;
+	}
+
+	div.post-attribs{
+		width: 90%;
+		box-shadow: 10px 10px 20px #888888;
+		margin-left: 40px;
+		margin-bottom: 35px;
+	}
+
+	div.fugu-world{
+		background-color: brown;
+		background-size: 100% 100%;
+
+	}
+
 	h1.name-attribs{
 		font: 400 60px/1.2 'Merienda One', Helvetica, sans-serif;
   	color: white;
 
+	}
+
+	h3.post-title-attribs{
+		color:rgb(64,64,64);
+		font-size: 25px;
+	}
+
+	img.fugu-attribs{
+		width:90%;
+	}
+
+	img.santa-hat-attribs{
+		position:absolute;
+		width:30%;
+		left:20px;
+		top:-60px;
 	}
 
 	p.date-attribs{
@@ -48,30 +81,6 @@
 		font-size:22px;
 	}
 
-	a.read-on-attribs{
-		font-size:15px;
-	}
-
-	h3.post-title-attribs{
-		color:rgb(64,64,64);
-		font-size: 25px;
-	}
-
-	div.post-attribs{
-		width: 90%;
-		box-shadow: 10px 10px 20px #888888;
-		margin-left: 40px;
-		margin-bottom: 35px;
-	}
-
-	div.fugu-world{
-
-		background-color: brown;
-	 ..background: url('images/bubbles.jpg');
-		background-size: 100% 100%;
-
-	}
-
 	</style>
 
 	<link rel="stylesheet" href="stylesheets/foundation.css">
@@ -86,7 +95,8 @@
 	<div class="grid-x">
 	  <div class="small-6 cell large-6 fugu-world">
 
-			  <img id = "fugu-fish" src="images/fugu.png">
+			  <img id = "fugu-fish" src="images/fugu.png" class="fugu-attribs">
+				<img id = "santa-hat" src="images/santahat.png" class="santa-hat-attribs">
 				<div style="text-align:center">
 					<h1 class="name-attribs"> garland zhang </h1>
 					<p class="my-title-attribs"> <b>TOOTSIE ROLL</b> </p>
