@@ -12,7 +12,7 @@
 
 
 	*{
-		font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+		font-family: 'Roboto', sans-serif;
 	}
 
 	.flex-container {
@@ -29,7 +29,7 @@
 
 	h1.name-attribs{
 		font: 400 60px/1.2 'Merienda One', Helvetica, sans-serif;
-  color: rgba(0,0,0,0.7);
+  	color: white;
 
 	}
 
@@ -39,27 +39,34 @@
 	}
 
 	p.post-content-attribs{
+		color:#808080;
 		font-size: 15px;
 	}
 
 	p.my-title-attribs{
-		font-size:15px;
+		color:#808080;
+		font-size:22px;
+	}
+
+	a.read-on-attribs{
+		font-size:12px;
 	}
 
 	h3.post-title-attribs{
 		color:rgb(64,64,64);
-		font-size: 20px;
+		font-size: 25px;
 	}
 
 	div.post-attribs{
 		width: 90%;
 		box-shadow: 10px 10px 20px #888888;
 		margin-left: 40px;
+		margin-bottom: 35px;
 	}
 
 	div.fugu-world{
 
-		background-color: yellow;
+		background-color: brown;
 	 ..background: url('images/bubbles.jpg');
 		background-size: 100% 100%;
 
@@ -69,6 +76,8 @@
 
 	<link rel="stylesheet" href="stylesheets/foundation.css">
 	<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 
@@ -80,10 +89,9 @@
 			  <img id = "fugu-fish" src="images/fugu.png">
 				<div style="text-align:center">
 					<h1 class="name-attribs"> garland zhang </h1>
-					<p class="my-title-attribs"> <b> WEED CUTTER </b> </p>
-					<p> Brief summary of me. </p>
-					<p>See what I'm doing on <a href="https://github.com/GarlandZhang">GitHub</a>. </p>
-					<p> Add me on <a href="https://www.linkedin.com/in/zhijia-zhang-745979148/">LinkedIn</a>!</p>
+					<p class="my-title-attribs"> <b>TOOTSIE ROLL</b> </p>
+					<p> I'm a banana inside an orange apple. </p>
+					<p>See what I'm doing on <a href="https://github.com/GarlandZhang">GitHub</a> or add me on <a href="https://www.linkedin.com/in/zhijia-zhang-745979148/">LinkedIn</a>.</p>
 				</div>
 
 		</div>
@@ -126,14 +134,12 @@
 				<div class="small-3 cell large-3 post-attribs">
 
 					<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> </b> </p>
-					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,50),	 40, "...") %> </b> </h1>
-					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 100), 100, "...") %> </p>
+					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,100), 100, "...") %> </b> </h1>
+					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 200), 200, "...") %> </p>
 
-					<a href=<%= "blog-post/" + posts[i].title %>>Read on</a>
+					<a class="read-on-attribs" href=<%= "blog-post/" + posts[i].title %>>More</a>
 
 				</div>
-
-				<br> </br>
 
 			<% } %>
 
