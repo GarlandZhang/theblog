@@ -11,7 +11,7 @@
 	<style>
 
 	*{
-		font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+		font-family: 'Roboto', sans-serif;
 
 	}
 
@@ -33,12 +33,13 @@
 	}
 
 	p.post-content-attribs{
+		color:#808080;
 		font-size: 15px;
 	}
 
 	h3.post-title-attribs{
 		color:rgb(64,64,64);
-		font-size: 30px;
+		font-size: 25px;
 	}
 
 	div.post-attribs{
@@ -53,7 +54,7 @@
 </head>
 
 <body>
-	
+
   <div class="small-12 cell large-12">
 
 		<% var raw_date = requested_post.timestamp;
@@ -80,7 +81,7 @@
 		%>
 
 		<h3 class="post-title-attribs"> <b> <%= requested_post.title.charAt(0).toUpperCase() + requested_post.title.slice(1) %> </b> </h1>
-		<p class="post-content-attribs"> <%= truncate(requested_post.content, 100, "...") %> </p>
+		<p class="post-content-attribs"> <%= requested_post.content %> </p>
 
 	</div>
 </body>
