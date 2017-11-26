@@ -47,6 +47,7 @@ router.post('/write', function(req,res){ //post handler
 
 	blogRealm.write(() => {
 		blogRealm.create('Post', {
+			id: id,
 			timestamp: timestamp,
 		  title: title,
 		  content: content});
