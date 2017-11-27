@@ -27,11 +27,11 @@ router.get('/write', function(req, res){
 	res.sendFile(__dirname + "/write.html");
 });
 
-router.get('/blog-post/:postTitle', function(req, res, next){
+router.get('/blog-post/:postTime', function(req, res, next){
 
 	let requested_post = blogRealm.objects('Post').filter(function(post){
-		if(post.title == req.params.postTitle){
-			return req.params.postTitle;
+		if(post.timestamp.getTime() == req.params.postTime){
+			return req.params.postTime;
 		}
 	})[0];
 
@@ -47,7 +47,6 @@ router.post('/write', function(req,res){ //post handler
 
 	blogRealm.write(() => {
 		blogRealm.create('Post', {
-			id: id,
 			timestamp: timestamp,
 		  title: title,
 		  content: content});
