@@ -19,7 +19,7 @@ var blogRealm = new Realm({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  let posts = blogRealm.objects('Post').sorted('timestamp',true);
+  let posts = blogRealm.objects('Post').sorted('timestamp',true).slice(0, 4);
   res.render('index.ejs', {posts:posts});
 });
 
