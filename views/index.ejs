@@ -134,7 +134,7 @@
 			<% for(var i=0; i < posts.length; i++) { %>
 
 				<% var raw_date = posts[i].timestamp;
-				 var day = ("" + raw_date).split(" ")[ 2 ];
+				 var day = parseInt(("" + raw_date).split(" ")[ 2 ]);
 				 var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][raw_date.getMonth()];
 				 var post_date = (day + ' ' + month + ' ' + raw_date.getFullYear()).toUpperCase();
 				 %>
@@ -165,7 +165,7 @@
 				<div class="small-3 cell large-3 post-attribs">
 
 					<div class = "grid-x">
-						<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> &#8226; </b> </p>
+						<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> &#8226; </b>        </p>
 						<p class="tag-attribs" name=<%= tag_name %>> <b> <%= posts[i].tag %> </b> </p>
 					</div>
 					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,100), 100, "...") %> </b> </h1>
