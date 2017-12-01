@@ -8,7 +8,8 @@ let PostSchema ={ //a model(class?)
 	properties: {
 		timestamp: 'date',
 		title: 'string',
-		content: 'string'
+		content: 'string',
+		tag: 'string'
 	}
 };
 
@@ -43,13 +44,15 @@ router.post('/write', function(req,res){ //post handler
 
 	let timestamp = new Date(),
 	title = req.body['title'],
-	content = req.body['content'];
+	content = req.body['content'],
+	tag = req.body['tag'];
 
 	blogRealm.write(() => {
 		blogRealm.create('Post', {
 			timestamp: timestamp,
 		  title: title,
-		  content: content});
+		  content: content,
+			tag: tag });
 	});
 
 	res.sendFile(__dirname + "/write-complete.html");
