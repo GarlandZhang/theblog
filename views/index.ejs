@@ -60,7 +60,7 @@
 	}
 
 	img.fugu-attribs{
-		width:87%;
+		width:88.5%;
 	}
 
 	img.santa-hat-attribs{
@@ -169,7 +169,7 @@
 						<p class="tag-attribs" name=<%= tag_name %>> <b> <%= posts[i].tag %> </b> </p>
 					</div>
 					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,100), 100, "...") %> </b> </h1>
-					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 200), 200, "...") %> </p>
+					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 100), 100, "...") %> </p>
 					<a class="read-on-attribs" href=<%= "blog-post/" + posts[i].timestamp.getTime() %>>More</a>
 
 				</div>
