@@ -3,9 +3,7 @@
 
 <head>
 
-	<head>
-	  <link rel="shortcut icon" type="image/x-icon" href="images/favicon2.ico" />
-	</head>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon2.ico" />
 
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -162,10 +160,10 @@
 				 var tag_name = "tag" + i;
 				 %>
 
-				<div class="small-3 cell large-3 post-attribs">
+				<div class="post-attribs">
 
 					<div class = "grid-x">
-						<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> &#8226; </b>        </p>
+						<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> &#8226; </b> </p>
 						<p class="tag-attribs" name=<%= tag_name %>> <b> <%= posts[i].tag %> </b> </p>
 					</div>
 					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,100), 100, "...") %> </b> </h1>
