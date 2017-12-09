@@ -48,7 +48,6 @@
 	h1.name-attribs{
 		font: 400 60px/1.2 'Merienda One', Helvetica, sans-serif;
   	color: white;
-
 	}
 
 	h3.post-title-attribs{
@@ -79,14 +78,19 @@
 		font-size: 12px;
 	}
 
-	p.post-content-attribs{
-		color:#808080;
-		font-size: 15px;
+	p.describ-attribs{
+		color: white;
+		font-size:16px;
 	}
 
 	p.my-title-attribs{
 		color:#808080;
 		font-size:22px;
+	}
+
+	p.post-content-attribs{
+		color:#808080;
+		font-size: 15px;
 	}
 
 	p.tag-attribs{
@@ -119,8 +123,8 @@
 				<div style="text-align:center">
 					<h1 class="name-attribs"> garland zhang </h1>
 					<p class="my-title-attribs"> <b>ANDROID APP DEVELOPER</b> </p>
-					<p> I love solving problems with mobile apps.</p>
-					<p>See what I'm doing on <a href="https://github.com/GarlandZhang">GitHub</a> or add me on <a href="https://www.linkedin.com/in/zhijia-zhang-745979148/">LinkedIn</a>.</p>
+					<p class="describ-attribs"> I love solving problems with mobile apps.</p>
+					<p class="describ-attribs">See what I'm doing on <a href="https://github.com/GarlandZhang">GitHub</a> or add me on <a href="https://www.linkedin.com/in/zhijia-zhang-745979148/">LinkedIn</a>.</p>
 				</div>
 
 		</div>
@@ -177,6 +181,7 @@
 						<p class="date-attribs" name=<%= date_name %>> <b> <%= post_date %> &#8226; </b> </p>
 						<p class="tag-attribs" name=<%= tag_name %>> <b> <%= posts[i].tag %> </b> </p>
 					</div>
+					
 					<h3 class="post-title-attribs" name=<%= title_name %>> <b> <%= truncate(posts[i].title.charAt(0).toUpperCase() + posts[ i ].title.slice(1).substring(0,100), 100, "...") %> </b> </h1>
 					<p class="post-content-attribs"name=<%= content_name %>> <%= truncate(posts[i].content.substring(0, 100), 100, "...") %> </p>
 					<a class="read-on-attribs" href=<%= "blog-post/" + posts[i].timestamp.getTime() %>>More</a>
