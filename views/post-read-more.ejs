@@ -138,8 +138,11 @@
 				 else{
 					 paragraph = paragraph + str.charAt(i);
 				 }
-			 }
-		 }
+			 } %>
+
+			 <p class = "post-content-attribs"> <%= paragraph %> </p>
+			 
+		 <% }
 
 		 addLineBreaks(requested_post.content);
 
