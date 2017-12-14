@@ -119,23 +119,32 @@
  			<p class="tag-attribs"> <b> <%= requested_post.tag %> </b> </p>
  		 </div>
 
+
+
+		<h3 class="post-title-attribs"> <b> <%= requested_post.title.charAt(0).toUpperCase() + requested_post.title.slice(1) %> </b> </h1>
+
 		<%
 
-		function truncate(str, maxLength, suffix)
-		 {
-				 if(str.length > maxLength)
-				 {
-						 str = str.substring(0, maxLength + 1);
-						 str = str.substring(0, Math.min(str.length, str.lastIndexOf(" ")));
-						 str = str + suffix;
+		 function addLineBreaks( str ){
+
+			 var paragraph = "";
+
+			 for( var i = 0; i < str.length; i++){
+				 if( str.charAt(i) == '\n'){ %>
+
+					 <p class = "post-content-attribs"> <%= paragraph %> </p>
+			<%		 paragraph = "";
 				 }
-				 return str;
+				 else{
+					 paragraph = paragraph + str.charAt(i);
+				 }
+			 }
 		 }
+
+		 addLineBreaks(requested_post.content);
 
 		%>
 
-		<h3 class="post-title-attribs"> <b> <%= requested_post.title.charAt(0).toUpperCase() + requested_post.title.slice(1) %> </b> </h1>
-		<p class="post-content-attribs"> <%= requested_post.content %> </p>
 
 		<p><a href="/" class="button">Back</a><br/>
 
